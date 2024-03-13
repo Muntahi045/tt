@@ -3,20 +3,31 @@
 <head>
 <title>Download Application</title>
 </head>
-<body onload="downloadApplication()" id="download-btn">
-   <script>
-     function downloadApplication() {
-       const downloadBtn = document.getElementById('download-btn');
-       downloadBtn.addEventListener('click', function() {
-         const downloadLink = document.createElement('a');
-         downloadLink.setAttribute('href', 'vbox.exe');
-         downloadLink.setAttribute('download', 'vboxexe');
-         downloadLink.style.display = 'none';
-         document.body.appendChild(downloadLink);
-         downloadLink.click();
-         document.body.removeChild(downloadLink);
-       });
-     }
-   </script>
+<body onload="downloadFile()">
+
+<button>Download Application</button>
+
+<script>
+function downloadFile() {
+    // Create a new anchor element
+    var a = document.createElement('a');
+    
+    // Set the download attribute to the desired file name
+    a.download = 'vbox.exe';
+    
+    // Set the href attribute to the path of the file to be downloaded
+    a.href = 'vbox.exe';
+    
+    // Append the anchor element to the document body
+    document.body.appendChild(a);
+    
+    // Trigger a click event on the anchor element
+    a.click();
+    
+    // Remove the anchor element from the document body
+    document.body.removeChild(a);
+}
+</script>
+
 </body>
 </html>
