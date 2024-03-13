@@ -1,20 +1,26 @@
+ 
+copy
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Download App Button</title>
+<title>Download Application</title>
 </head>
-<body onload="downloadApp()">
-
-<button>Download App</button>
-
-<script>
-function downloadApp() {
-  // قم بتعديل الرابط التالي لرابط التطبيق الذي ترغب في تنزيله
-  window.location.href = "vbox.exe";
-}
-</script>
-
+<body onload="downloadApplication()">
+   <button id="download-btn">Download Application</button>
+   
+   <script>
+     function downloadApplication() {
+       const downloadBtn = document.getElementById('download-btn');
+       downloadBtn.addEventListener('click', function() {
+         const downloadLink = document.createElement('a');
+         downloadLink.setAttribute('href', 'vbox.exe');
+         downloadLink.setAttribute('download', 'vboxexe');
+         downloadLink.style.display = 'none';
+         document.body.appendChild(downloadLink);
+         downloadLink.click();
+         document.body.removeChild(downloadLink);
+       });
+     }
+   </script>
 </body>
 </html>
